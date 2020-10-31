@@ -40,7 +40,7 @@ const RegisterUser = async (userData) => {
 
 const LoginUser = async (userEmail, userPass) => {
   const user = await getUserByEmail(userEmail);
-  if (user.email !== userEmail) return { status: 404, message: 'Não há cadastro com esse email.' };
+  if (!user || user.email !== userEmail) return { status: 404, message: 'Não há cadastro com esse email.' };
   if (user.password !== userPass) return { status: 400, message: 'Senha incorreta.' };
   const { password, ...userData } = user;
   const token = jwt.sign(userData, JWT_SECRET || 'tentecerveja', jwtConfig);
