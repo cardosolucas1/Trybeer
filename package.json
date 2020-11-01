@@ -24,9 +24,14 @@
   "homepage": "https://github.com/betrybe/sd-0x-trybeer#readme",
   "dependencies": {
     "@mysql/xdevapi": "^8.0.20",
+    "bootstrap": "^4.5.3",
     "moment": "^2.29.0",
     "mysql2": "^2.1.0",
-    "sequelize": "^6.3.4"
+    "react-loading-skeleton": "^2.1.1",
+    "react-responsive-carousel": "^3.2.10",
+    "react-slideshow-image": "^3.3.0",
+    "sequelize": "^6.3.4",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "cypress": "^5.2.0",

@@ -2,8 +2,10 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import BeerCard from '../BeerCard';
 import BeerContext from '../../Context/BeerContext/BeerContext';
-import MenuBar from '../MenuBar';
-import './styles.css';
+import Header from '../../Components/Header';
+import RowContainer from '../CSS/RowContainer';
+import Slide from '../Slide';
+import Footer from '../Footer';
 
 const ProductsPage = () => {
   const initialValue = 0;
@@ -11,20 +13,30 @@ const ProductsPage = () => {
 
   return (
     <div className="products-list">
-      <MenuBar titleName="TryBeer" />
-      {products.map(({
-        id, name, price, urlImage, quantity,
-      }, index) => (
-        <BeerCard
-          id={ id }
-          productName={ name }
-          price={ price }
-          imageURL={ urlImage }
-          initialQuantity={ quantity }
-          index={ index }
-          key={ name }
-        />
-      )) }
+      <Header
+        title="TryBeer"
+        buttons={[
+          { name: 'Perfil', link: '/profile' },
+          { name: 'Pedidos', link: '/orders' },
+          { name: 'Sair', link: '/Login' },
+        ]}
+      />
+      <Slide />
+      <RowContainer>
+        {products.map(({
+          id, name, price, urlImage, quantity,
+        }, index) => (
+          <BeerCard
+            id={ id }
+            productName={ name }
+            price={ price }
+            imageURL={ urlImage }
+            initialQuantity={ quantity }
+            index={ index }
+            key={ index}
+          />
+        )) }
+      </RowContainer>
       <Link to="/checkout">
         <button
           disabled={ total === initialValue }
@@ -41,6 +53,7 @@ const ProductsPage = () => {
           </span>
         </button>
       </Link>
+      <Footer />
     </div>
   );
 };

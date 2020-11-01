@@ -8,3 +8,4 @@ export { default as checkout } from './checkout';
 export { default as adminProfile } from './adminProfile';
 export { default as adminOrders } from './adminOrders';
 export { default as adminOrdersDetail } from './adminOrdersDetail';
+export { default as home } from './home';

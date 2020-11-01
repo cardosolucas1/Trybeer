@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import BeerProvider from '../Context/BeerContext/BeerProvider';
 import {
+  home,
   register,
   login,
   clientProfile,
@@ -17,7 +18,7 @@ import {
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={ login } />
+      <Route exact path="/" component={ home } />
       <Route exact path="/login" component={ login } />
       <Route exact path="/register" component={ register } />
       <Route exact path="/profile" component={ clientProfile } />

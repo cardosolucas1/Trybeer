@@ -9,6 +9,8 @@ import {
   updateProductInLocalStorage,
   getProductsLocalStorage,
 } from '../../utils/localStorage';
+import BeerCardContainer from '../CSS/BeerCard';
+import ProductSleketon from '../Skeleton/ProductSleketon';
 
 const BeerCard = ({
   id,
@@ -19,10 +21,11 @@ const BeerCard = ({
   index,
 }) => {
   const sumQuantity = 1;
-  const discountValue = 0.1;
+  const discountValue = 0.5;
   const zero = 0;
   const [quantity, setQuantity] = useState(initialQuantity);
   const { setTotal } = useContext(BeerContext);
+  const [loading, setLoading] = useState(true);
 
   const memorizedQuantity = useCallback((sumValue) => {
     setTotal((currentTotal) => {
@@ -55,8 +58,15 @@ const BeerCard = ({
     });
   }, [memorizedQuantity, productName]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+  }, [])
+
+  if (loading) return <ProductSleketon />
   return (
-    <div className="product">
+    <BeerCardContainer className="product">
       <div className="product-values">
         <div>
           <span
@@ -79,7 +89,7 @@ const BeerCard = ({
             })}`}
           </span>
         </div>
-        <span className="discount">-10%</span>
+        <span className="discount">-50%</span>
       </div>
       <div className="product-img">
         <img
@@ -115,7 +125,7 @@ const BeerCard = ({
           />
         </label>
       </div>
-    </div>
+    </BeerCardContainer>
   );
 };
 
