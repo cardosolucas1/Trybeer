@@ -19,9 +19,13 @@ const Button = styled.button`
   position: relative;
   &:hover 
   {
-    animation: none;animation: none;animation: none;animation: none;
+    animation: none
   }
-  @keyframes pulse {to {box-shadow: 0 0 0 10px rgba(232, 76, 61, 0);}}
+  @keyframes pulse {
+    to {
+      box-shadow: 0 0 0 10px rgba(232, 76, 61, 0);
+    }
+  }
 
   svg { 
     position: absolute;

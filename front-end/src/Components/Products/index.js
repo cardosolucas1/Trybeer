@@ -19,7 +19,7 @@ const ProductsPage = () => {
         buttons={[
           { name: 'Perfil', link: '/profile' },
           { name: 'Pedidos', link: '/orders' },
-          { name: 'Sair', link: '/Login' },
+          { name: 'Sair', link: '/' },
         ]}
       />
       <Slide />

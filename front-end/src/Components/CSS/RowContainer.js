@@ -6,9 +6,14 @@ const RowContainer = styled.section`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 10px;
+  min-height: 800px;
+  margin: auto;
+  width: 100%;
   section {
     margin: auto;
-    width: 500px;
+    max-width: 500px;
+    width: 90%;
   }
 `;
 

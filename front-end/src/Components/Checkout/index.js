@@ -3,7 +3,12 @@ import { useHistory } from 'react-router-dom';
 import MenuBar from '../MenuBar';
 import { getProductsLocalStorage } from '../../utils/localStorage';
 import { postNewOrder } from '../../services/api_endpoints';
-import './styles.css';
+import Body from '../CSS/Body';
+import ColumnContainer from '../CSS/ColumnContainer';
+import RowContainer from '../CSS/RowContainer';
+import Button from '../CSS/Button';
+import TextInputContainer from '../CSS/TextInput';
+import Footer from '../Footer';
 
 const Checkout = () => {
   const history = useHistory();
@@ -57,74 +62,93 @@ const Checkout = () => {
   }, [newCart]);
 
   return (
-    <div>
+    <Body>
       <MenuBar titleName="Finalizar Pedido" />
-
-      <h2>Produtos</h2>
-      {cart.length < 1 && <h2>Não há produtos no carrinho</h2>}
-      {cart.map(({ price = zero, productName, quantity }, index) => (
-        <div className="cart-products" key={ productName }>
-          <div className="cart-qtd" data-testid={ `${index}-product-qtd-input` }>{ quantity }</div>
-          <div className="cart-name" data-testid={ `${index}-product-name` }>{ productName }</div>
-          <div className="cart-total" data-testid={ `${index}-product-total-value` }>
-            { formatePrice(quantity * price) }
-          </div>
-          <div className="cart-price" data-testid={ `${index}-product-unit-price` }>
-            { `(${formatePrice(price)} un)` }
-            <button
-              type="submit"
-              value="Submit"
-              data-testid={ `${index}-removal-button` }
-              onClick={ () => removeOrder(index) }
-            >
-              X
-            </button>
-          </div>
-        </div>
-      ))}
-
-      <div data-testid="order-total-value">
-        { `Total: ${totalPrice}` }
-      </div>
-
-      <h2>Endereço</h2>
-      <label htmlFor="street">
-        Rua:
-        <input
-          id="street"
-          name="street"
-          data-testid="checkout-street-input"
-          type="text"
-          required
-          onChange={ (e) => setNameAdress(e.target.value) }
-          value={ nameAdress }
-        />
-      </label>
-      <br />
-      <label htmlFor="number">
-        Número da casa:
-        <input
-          id="number"
-          name="number"
-          data-testid="checkout-house-number-input"
-          type="text"
-          required
-          onChange={ (e) => setNumberAdress(e.target.value) }
-          value={ numberAdress }
-        />
-      </label>
-      <br />
-      <button
-        type="button"
-        data-testid="checkout-finish-btn"
-        disabled={ disableButtton(justNumberPrice, nameAdress, numberAdress) }
-        onClick={ () => sendNewOrder(nameAdress, numberAdress, cart, user, justNumberPrice) }
-      >
-        Finalizar Pedido
-      </button>
-      { message && <p>{message}</p> }
-      { message && goToProducts() }
-    </div>
+      <h2>Resumo do seu pedido</h2>
+      {cart.length  < 1 ? <h2>Não há produtos no carrinho</h2> :
+        <RowContainer className="bg-image box-shadow">
+          <ColumnContainer>
+            {cart.map(({ price = zero, productName, quantity }, index) => {
+              return (
+              <section className="cart-products" key={ productName }>
+                <div className="cart-name" data-testid={ `${index}-product-name` }>
+                  <span>Produto</span>
+                  <span>{ productName }</span>
+                </div>
+                <div className="cart-qtd" data-testid={ `${index}-product-qtd-input` }>
+                  <span>Quantidade</span>
+                  <span>{ quantity }</span>
+                </div>
+                <div className="cart-total" data-testid={ `${index}-product-total-value` }>
+                <h3>Total</h3>
+                  <span>{ formatePrice(quantity * price) }</span>
+                </div>
+                <div className="cart-price" data-testid={ `${index}-product-unit-price` }>
+                  <span>Valor unitário: { `(${formatePrice(price)} un)` }</span>
+                  
+                  <Button
+                    type="submit"
+                    value="Submit"
+                    data-testid={ `${index}-removal-button` }
+                    onClick={ () => removeOrder(index) }
+                  >
+                    Remover
+                  </Button>
+                </div>
+              </section>
+            )})}
+            <div data-testid="order-total-value" className="resume">
+              <span>{ `Total: ${totalPrice}` }</span>
+            </div>
+          </ColumnContainer>  
+      <section>
+       
+        <TextInputContainer>
+          <h2>Endereço</h2> <br />
+          <label htmlFor="street">
+            Rua:
+            <input
+              autocomplete="off"
+              id="street"
+              name="street"
+              data-testid="checkout-street-input"
+              type="text"
+              required
+              onChange={ (e) => setNameAdress(e.target.value) }
+              value={ nameAdress }
+            />
+          </label>
+          <br />
+          <label htmlFor="number">
+            Número da casa:
+            <input
+              autocomplete="off"
+              id="number"
+              name="number"
+              data-testid="checkout-house-number-input"
+              type="text"
+              required
+              onChange={ (e) => setNumberAdress(e.target.value) }
+              value={ numberAdress }
+            />
+          </label>
+          <br />
+          </TextInputContainer>
+          <Button
+            type="button"
+            data-testid="checkout-finish-btn"
+            disabled={ disableButtton(justNumberPrice, nameAdress, numberAdress) }
+            onClick={ () => sendNewOrder(nameAdress, numberAdress, cart, user, justNumberPrice) }
+          >
+            Finalizar Pedido
+          </Button>
+          { message && <p>{message}</p> }
+          { message && goToProducts() }
+      </section>
+        </RowContainer>
+      }
+      <Footer />
+    </Body>
   );
 };
 

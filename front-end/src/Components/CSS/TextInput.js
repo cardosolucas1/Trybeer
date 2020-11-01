@@ -8,10 +8,10 @@ const SectionInput = styled.section.attrs({ className: 'box-shadow' })`
   display: flex;
   flex-direction: column;
   margin: 20px auto;
-  max-width: 500px;
   padding: 100px 50px;
   text-align: left;
-  width: 90%;
+  width: 80%;
+  max-width: 500px;
   input {
     background-color: var(--text-light);
     border: none;

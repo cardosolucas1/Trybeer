@@ -16,7 +16,7 @@ const home = () => {
         title="trybeer"
         buttons={[{ name: 'Login', link: '/login'}, { name: 'Cadastro', link: '/register'}]}
       />
-      <RowContainer className="bg-image">
+      <RowContainer className="bg-image box-shadow">
         <section>
           <AppImg src={app} width="70%"/>
         </section>

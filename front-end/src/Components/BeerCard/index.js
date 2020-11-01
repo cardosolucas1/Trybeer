@@ -61,7 +61,7 @@ const BeerCard = ({
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 2000);
   }, [])
 
   if (loading) return <ProductSleketon />

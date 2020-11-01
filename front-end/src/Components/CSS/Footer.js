@@ -11,38 +11,23 @@ const FooterStyled = styled.footer`
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 100px;
+    position: relative;
   }
 
   img {
-    animation: showFriends 0.7s ease-in-out forwards;
-    animation-delay: 1.5s;
     width: 70%;
     max-width: 700px;
-    margin-left: 100%;
-    opacity: 0;
+    opacity: 0.9;
+    top: 50px;
+    position: relative;
   }
 
+  div {
+    margin: 10px;
+  }
   div > p {
     cursor: pointer;
-  
-  }
-
-  @keyframes showFriends {
-    0% {
-      margin-left: 100%;
-      opacity: 0;
-    }
-
-    90% {
-      margin-left: 0;
-      opacity: 1;
-    }
-
-    100% {
-      border-radius: 10% 10% 0 0;
-      margin-left: 0;
-      opacity: 0.9;
-    }
+    margin: 5px 0;
   }
 `;
 
