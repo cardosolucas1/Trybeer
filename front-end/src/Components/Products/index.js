@@ -6,6 +6,7 @@ import Header from '../../Components/Header';
 import RowContainer from '../CSS/RowContainer';
 import Slide from '../Slide';
 import Footer from '../Footer';
+import Cart from '../../Components/Cart';
 
 const ProductsPage = () => {
   const initialValue = 0;
@@ -37,7 +38,7 @@ const ProductsPage = () => {
           />
         )) }
       </RowContainer>
-      <Link to="/checkout">
+      {/* <Link to="/checkout">
         <button
           disabled={ total === initialValue }
           type="button"
@@ -52,6 +53,9 @@ const ProductsPage = () => {
             })}`}
           </span>
         </button>
+          </Link> */}
+       <Link to="/checkout">
+        <Cart />
       </Link>
       <Footer />
     </div>
