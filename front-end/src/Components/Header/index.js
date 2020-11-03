@@ -4,9 +4,12 @@ import PropTypes from 'prop-types';
 import StyledHeader from '../CSS/Header';
 import Button from '../CSS/Button';
 
-const Header = ({ title, buttons }) => {
+const Header = ({ title, buttons  = []}) => {
   const history = useHistory();
   const handleButtonClick = (link) => {
+    if (link === '/login') {
+      localStorage.clear();
+    }
     history.push(link)
   }
   return (  

@@ -76,7 +76,7 @@
 }
 
 .menu-bg {
-  background: #1f2B20;
+  background-image: var(--color-background-gradient);
   height: 100px;
   transition: 0.1s ease-in;
   position: relative;

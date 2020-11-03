@@ -7,6 +7,10 @@ import '../../index.css';
 const MenuBar = ({ titleName }) => {
   const [change, setChange] = useState(false);
 
+  const getOut = () => {
+    localStorage.clear();
+  }
+
   return (
     <div className="menu-container">
       <div className="menu">
@@ -25,7 +29,7 @@ const MenuBar = ({ titleName }) => {
             <li><Link data-testid="side-menu-item-products" to="/products">Produtos</Link></li>
             <li><Link data-testid="side-menu-item-my-orders" to="/orders">Meus pedidos</Link></li>
             <li><Link data-testid="side-menu-item-my-profile" to="/profile">Meu perfil</Link></li>
-            <li><Link data-testid="side-menu-item-logout" to="/login">Sair</Link></li>
+            <li><Link onClick={() => getOut()}data-testid="side-menu-item-logout" to="/login">Sair</Link></li>
           </ul>
         </nav>
       </div>

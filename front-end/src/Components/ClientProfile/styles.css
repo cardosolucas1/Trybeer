@@ -1,4 +1,4 @@
-/* .client-profile > label {
+.client-profile > label {
   font-size: 18px;
 }
 
@@ -9,12 +9,17 @@
   color: #f2f2f2;
   height: 25px;
   margin: 15px;
-  max-width: 700px;
+  max-width: 500px;
   opacity: 0.8;
-  padding: 10px;
+  padding: 20px;
   transition: opacity 0.5s;
   width: 80%;
 }
+
+.client-profile > label > input:focus {
+  outline: none
+}
+
 
 .client-profile > label > input:hover {
   opacity: 1;
@@ -35,4 +40,4 @@
 .client-profile > button:hover {
   cursor: pointer;
   opacity: 1;
-} */
+}

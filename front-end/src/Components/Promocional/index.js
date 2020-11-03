@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '../CSS/Button';
 import './styles.css';
 import Instagram from '../../images/instagram.png';
 import Facebook from '../../images/facebook.png';
@@ -22,7 +23,7 @@ const Promocional = ({ name }) => (
     </p>
     <label htmlFor="code">
       Código
-      <input id="code" type="text" value={ `${name}2020` } />
+      <Button id="code">{ `${name}2020` }</Button>
     </label>
     <div className="social-icon">
       <img src={ Facebook } alt="Icone do Facebook" />

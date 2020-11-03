@@ -1,6 +1,6 @@
-/* .register-container {
+.register-container {
   border-radius: 5px;
-  margin: 100px auto;
+  margin: 5px auto;
   max-width: 500px;
   padding: 70px 0;
   text-align: center;
@@ -38,4 +38,4 @@
 
 .confirm-btn:disabled {
   color: white;
-} */
+}

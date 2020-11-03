@@ -1,4 +1,3 @@
-// services
 const { GetAllProducts } = require('../services/productService');
 
 const getAllProducts = async (_req, res) => {

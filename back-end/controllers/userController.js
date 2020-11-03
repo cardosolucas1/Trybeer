@@ -1,4 +1,3 @@
-// services
 const { RegisterUser, UpdateUserName, LoginUser } = require('../services/userService');
 
 const loginController = async (req, res) => {
