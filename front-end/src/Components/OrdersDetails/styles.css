@@ -21,6 +21,7 @@
 .order-product {
   display: flex;
   justify-content: space-between;
+  margin: 5px;
   padding: 0 10px;
 }
 

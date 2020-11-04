@@ -9,6 +9,7 @@ import RowContainer from '../CSS/RowContainer';
 import Button from '../CSS/Button';
 import TextInputContainer from '../CSS/TextInput';
 import Footer from '../Footer';
+import Box from '../Box';
 
 const Checkout = () => {
   const history = useHistory();
@@ -64,8 +65,7 @@ const Checkout = () => {
   return (
     <Body>
       <MenuBar titleName="Finalizar Pedido" />
-      <h2>Resumo do seu pedido</h2>
-      {cart.length  < 1 ? <h2>Não há produtos no carrinho</h2> :
+      {cart.length  < 1 ? <Box text="Não encontramos nada :("/>:
         <RowContainer className="bg-image box-shadow">
           <ColumnContainer>
             {cart.map(({ price = zero, productName, quantity }, index) => {

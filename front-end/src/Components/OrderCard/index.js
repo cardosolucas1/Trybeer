@@ -19,20 +19,18 @@ const OrderCard = ({
         <span className="info-label">Pedido:</span>
         <span>{id}</span>
         <span
-      className={ status === 'Entregue' ? 'order-delivered' : 'order-pending' }
-    >
-      {status}
-    </span>
-      </div>
-      <div className="order-info">
-        <span>Endereço</span>
-        <span >
-        {`${deliveryAddress}, ${deliveryNumber}`}
+          className={ status === 'Entregue' ? 'order-delivered' : 'order-pending' }
+        >
+          {status}
         </span>
       </div>
       <div className="order-info">
-        <span>Total</span>
-        <span >
+        <span className="info-label">Endereço</span>
+        <span>{`${deliveryAddress}, ${deliveryNumber}`}</span>
+      </div>
+      <div className="order-info">
+        <span className="info-label">Total</span>
+        <span>
         { `R$ ${totalPrice.toLocaleString('pt-BR', {
         minimumFractionDigits: 2,
       })}` }

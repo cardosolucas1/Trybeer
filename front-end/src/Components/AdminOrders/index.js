@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { getOrderList } from '../../services/api_endpoints';
 import OrderCard from '../OrderCard';
 import Footer from '../Footer';
 import Body from '../CSS/Body';
 import Header from '../Header';
-import RowContainer from '../CSS/RowContainer';
 import './styles.css';
 
 const AdminOrdersPage = () => {
