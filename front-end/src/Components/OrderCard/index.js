@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './style.css';
+import '../CSS/Orders.css';
 
 const OrderCard = ({
   id,
@@ -10,33 +11,53 @@ const OrderCard = ({
   status,
   dtttId,
 }) => (
-  <div className="order">
-    <div className="order-info">
-      <h2 data-testid={ `${dtttId}-order-number` }>
-        {`Pedido ${id}`}
-      </h2>
-      <h3 data-testid={ `${dtttId}-order-address` }>
+    <Link     
+      className="order-card"
+      to={ `/admin/orders/${id}` }
+    >
+      <div className="order-info">
+        <span className="info-label">Pedido:</span>
+        <span>{id}</span>
+        <span
+      className={ status === 'Entregue' ? 'order-delivered' : 'order-pending' }
+    >
+      {status}
+    </span>
+      </div>
+      <div className="order-info">
+        <span>Endereço</span>
+        <span >
         {`${deliveryAddress}, ${deliveryNumber}`}
-      </h3>
-    </div>
-    <div className="order-footer">
-      <span
-        data-testid={ `${dtttId}-order-total-value` }
-        className="order-total"
-      >
+        </span>
+      </div>
+      <div className="order-info">
+        <span>Total</span>
+        <span >
         { `R$ ${totalPrice.toLocaleString('pt-BR', {
-          minimumFractionDigits: 2,
-        })}` }
-      </span>
-      <span
-        data-testid={ `${dtttId}-order-status` }
-        className={ status === 'Entregue' ? 'order-delivered' : 'order-pending' }
-      >
-        {status}
-      </span>
-    </div>
-  </div>
+        minimumFractionDigits: 2,
+      })}` }
+        </span>
+      </div>
+    </Link>
 );
+
+{/* <h2>
+      {`Pedido ${id}`}
+    </h2>
+    <h3>
+      {`${deliveryAddress}, ${deliveryNumber}`}
+    </h3>
+
+    <span  className="order-total">
+      { `R$ ${totalPrice.toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+      })}` }
+    </span>
+    <span
+      className={ status === 'Entregue' ? 'order-delivered' : 'order-pending' }
+    >
+      {status}
+    </span> */}
 
 OrderCard.propTypes = {
   id: PropTypes.number.isRequired,

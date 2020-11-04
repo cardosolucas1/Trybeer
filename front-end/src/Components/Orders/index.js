@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import MenuBar from '../MenuBar';
 import { getProductsLocalStorage } from '../../utils/localStorage';
 import { getOrdersFromAPI } from '../../services/api_endpoints';
-import './styles.css';
+import '../CSS/Orders.css';
 import Footer from '../Footer';
 
 const Orders = () => {

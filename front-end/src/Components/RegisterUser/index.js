@@ -106,8 +106,8 @@ const RegisterUser = () => {
             Cadastrar
           </button>
           <button
-            onChange={ () => handleInput('seller') }
-            className="confirm-btn"
+            onClick={ () => handleInput('seller') }
+            className={`confirm-btn ${seller ? 'isSeller' : 'isntSeller'}`}
             disabled={ email === '' || password === '' || name === '' }
             type="button"
             data-testid="signup-btn"

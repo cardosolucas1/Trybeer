@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getOrderList } from '../../services/api_endpoints';
-import AdminSideBar from '../AdminSideBar/index';
 import OrderCard from '../OrderCard';
+import Footer from '../Footer';
+import Body from '../CSS/Body';
+import Header from '../Header';
+import RowContainer from '../CSS/RowContainer';
 import './styles.css';
 
 const AdminOrdersPage = () => {
   const { token } = JSON.parse(localStorage.getItem('user'));
   const [productList, setProductList] = useState([]);
+  const buttons = [
+    { name: 'Perfil', link: '/admin/profile'},
+    { name: 'Sair', link: '/'},
+  ];
 
   useEffect(() => {
     const fetchOrders = async () => await getOrderList(token) || [];
@@ -16,9 +23,9 @@ const AdminOrdersPage = () => {
   }, [token]);
 
   return (
-    <div className="admin-orders">
-      <AdminSideBar />
-      <section className="admin-orders-aside">
+    <Body className="admin-orders">
+      <Header title="TryBeer" buttons={buttons}/>
+      <section className="orders-list">
         {productList.map(({
           id,
           totalPrice,
@@ -26,23 +33,19 @@ const AdminOrdersPage = () => {
           deliveryNumber,
           status,
         }, index) => (
-          <Link
+          <OrderCard
             key={ id }
-            to={ `/admin/orders/${id}` }
-          >
-            <OrderCard
-              id={ id }
-              totalPrice={ totalPrice }
-              deliveryAddress={ deliveryAddress }
-              deliveryNumber={ deliveryNumber }
-              status={ status }
-              dtttId={ index }
-              // Data-test-ids devem iniciar em zero
+            id={ id }
+            totalPrice={ totalPrice }
+            deliveryAddress={ deliveryAddress }
+            deliveryNumber={ deliveryNumber }
+            status={ status }
+            dtttId={ index }
             />
-          </Link>
         )) }
       </section>
-    </div>
+      <Footer />
+    </Body>
   );
 };
 

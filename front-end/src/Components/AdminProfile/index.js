@@ -1,28 +1,39 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import AdminSideBar from '../AdminSideBar';
+import Footer from '../Footer';
+import Body from '../CSS/Body';
+import Header from '../Header';
+import ColumnContainer from '../CSS/ColumnContainer';
 import './styles.css';
 
 const AdminProfile = () => {
   const { name, email } = JSON.parse(localStorage.getItem('user')) || '';
+  const buttons = [
+    {name: "Pedidos", link: '/admin/orders'},
+    {name: "Sair", link: '/login'}
+  ];
 
   if (!name) return <Redirect to="/login" />;
 
   return (
-    <div className="admin-profile">
-      <AdminSideBar />
-      <div className="admin-profile-aside">
-        <h1>Perfil</h1>
-        <h3>
-          Nome:
-          <span data-testid="profile-name">{name}</span>
-        </h3>
-        <h3>
-          Email:
-          <span data-testid="profile-email">{email}</span>
-        </h3>
-      </div>
-    </div>
+    <Body className="admin-profile">
+      <Header title="Perfil" buttons={buttons}/>
+      <ColumnContainer className="admin-profile-aside">
+        <section>
+          <span>Nome / Username</span>
+          <div data-testid="profile-name">
+            <span>{name}</span>
+          </div>
+        </section>
+        <section>
+        <span>Email</span>
+          <div data-testid="profile-email">
+            <span>{email}</span>
+          </div>
+        </section>
+      </ColumnContainer>
+      <Footer />
+    </Body>
   );
 };
 

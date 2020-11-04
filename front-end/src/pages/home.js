@@ -13,7 +13,7 @@ const home = () => {
   return (
     <Body>
       <Header
-        title="trybeer"
+        title="TryBeer"
         buttons={[{ name: 'Login', link: '/login'}, { name: 'Cadastro', link: '/register'}]}
       />
       <RowContainer className="bg-image box-shadow">

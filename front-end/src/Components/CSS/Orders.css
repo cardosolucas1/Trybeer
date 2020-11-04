@@ -10,11 +10,13 @@
   background-color: #262626;
   background-image: url('../../images/bg-card-orders.png');
   background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 10px;
   color: white;
   font-weight: 700;
   margin: 10px auto;
   max-width: 250px;
+  min-height: 150px;
   text-decoration: none;
   transition: box-shadow 0.5s;
   transition: background-image 1s;

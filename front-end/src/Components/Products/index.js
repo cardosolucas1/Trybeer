@@ -9,8 +9,7 @@ import Footer from '../Footer';
 import Cart from '../../Components/Cart';
 
 const ProductsPage = () => {
-  const initialValue = 0;
-  const { total, products } = useContext(BeerContext);
+  const { products = [] } = useContext(BeerContext);
 
   return (
     <div className="products-list">
@@ -38,22 +37,6 @@ const ProductsPage = () => {
           />
         )) }
       </RowContainer>
-      {/* <Link to="/checkout">
-        <button
-          disabled={ total === initialValue }
-          type="button"
-          data-testid="checkout-bottom-btn"
-          className="checkout-btn"
-        >
-          Ver Carrinho
-          <span data-testid="checkout-bottom-btn-value">
-            {`R$ ${total.toLocaleString('pt-BR', {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-            })}`}
-          </span>
-        </button>
-          </Link> */}
        <Link to="/checkout">
         <Cart />
       </Link>

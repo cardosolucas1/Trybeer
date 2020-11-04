@@ -7,8 +7,7 @@ import Footer from '../Components/Footer';
 import Body from '../Components/CSS/Body';
 import SectionInput from '../Components/CSS/TextInput';
 import Button from '../Components/CSS/Button';
-// import './login.css';
-// import '../../index.css';
+import { toast, ToastContainer } from 'react-toastify';
 
 const LoginPage = () => {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -27,15 +26,24 @@ const LoginPage = () => {
     const { data } = await getUserFromAPI(email, password);
     if (data.message) {
       setError({ message: data.message });
-      setTimeout(() => {
-        setError({ message: null });
-      }, 3000)
+      toast.error(data.message, {
+        autoClose: 3000,
+        pauseOnHover: true
+      });
       return;
     }
     const { role, token } = data;
     if (token) {
       localStorage.setItem('user', JSON.stringify(data));
-      setUserRole(role);
+      toast.success('Login identificado', {
+        autoClose: 1500,
+        pauseOnHover: true
+      });
+
+      setTimeout(() => {
+        setUserRole(role);
+      }, 1550);
+   
     }
     return true;
   };
@@ -51,13 +59,12 @@ const LoginPage = () => {
           { name: 'Não sou cadastrado', link: '/register' }
         ]}
       />
-      {/* <RowContainer className="login-container default-color box-shadow"> */}
+      <ToastContainer />
         <SectionInput className="form">
-          {error.message && <h4>{error.message}</h4>}
           <label htmlFor="email">
             Email
             <input
-              autocomplete="off"
+              autoComplete="off"
               id="email"
               className="text-box"
               name="email"
@@ -70,7 +77,7 @@ const LoginPage = () => {
           <label htmlFor="password">
             Password
             <input
-              autocomplete="off"
+              autoComplete="off"
               id="password"
               className="text-box"
               data-testid="password-input"

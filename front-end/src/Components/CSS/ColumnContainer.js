@@ -10,12 +10,10 @@ const ColumnContainer = styled.section`
     position: relative;
 
   }
-  
   section {
     align-self: center;
     background-color: #044A42;
     border-radius: 4px;
-    
     margin: 5px 0;
     max-width: 900px;
     padding: 10px;
