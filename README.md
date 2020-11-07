@@ -19,14 +19,14 @@ ou
 __________________________________________________________________________________
 <p>Ao entrar no front-end do projeto, após inicializar com um "npm start", por exemplo, você será estará na página inicial da aplicação:</p>
 
-<img src="https://i.ibb.co/VHwXG6L/home.png" alt="Imagem da página inicial do projeto Trybeer (web)" />
+<img src="https://i.ibb.co/VHwXG6L/home.png" alt="Imagem da página inicial do projeto Trybeer (web)" width="80%" />
 
 
 <p>Logo em seguida, você pode se cadastar e fazer login na aplicação, e navegar como quiser!</p>
 
 ### Página de produtos
 
-<img src="https://i.ibb.co/84BhgPt/produtos.png" alt="Página de produtos da aplicação" />
+<img src="https://i.ibb.co/84BhgPt/produtos.png" alt="Página de produtos da aplicação"  width="80%"/>
 
 <h1>Pontos de atenção</h1>
 
