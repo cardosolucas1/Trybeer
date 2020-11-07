@@ -19,4 +19,4 @@ ou
 __________________________________________________________________________________
 Ao entrar no front-end do projeto, você será estará na página inicial da aplicação:
 
-<img src="https://ibb.co/LQN4yK0" alt="Imagem da página inicial do projeto Trybeer (web)" width="300px" />
+<img src="https://i.ibb.co/VHwXG6L/home.png" alt="Imagem da página inicial do projeto Trybeer (web)" />
