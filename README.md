@@ -17,6 +17,18 @@ ou
  yarn install
 ```
 __________________________________________________________________________________
-Ao entrar no front-end do projeto, você será estará na página inicial da aplicação:
+<p>Ao entrar no front-end do projeto, após inicializar com um "npm start", por exemplo, você será estará na página inicial da aplicação:</p>
 
 <img src="https://i.ibb.co/VHwXG6L/home.png" alt="Imagem da página inicial do projeto Trybeer (web)" />
+
+
+<p>Logo em seguida, você pode se cadastar e fazer login na aplicação, e navegar como quiser!</p>
+
+<h1>Pontos de atenção</h1>
+
+## A aplicação utiliza o MYSQL como banco de dados, sendo necessário a criação do banco com o nome "Trybeer" para que seja utilizado na aplicação.
+
+## É necessário que seja feita a configuração das variáveis de ambiente para que o banco de dados funcione perfeitamente.
+
+<h1>Como configurar o banco de dados MYSQL</h1>
+
